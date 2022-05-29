@@ -1,3 +1,27 @@
+/*
+File: ex4a.c
+Map File to Memory and Adjust Data
+=====================================================================
+Written by: Tali Kalev, ID:208629691, Login: talikal
+		and	Noga Levy, ID:315260927, Login: levyno
+
+This program maps a file given in the argument vector to the memory.
+The program then goes through the file, finds the average of each
+row of numbers in file and replaces the last digits 00 of the line
+with the average calculated.
+Format of file: list of 2 - digit integers separated by new line.
+At the end of each line there is: 00.
+
+Compile: gcc -Wall ex4a.c -o ex4a
+
+Run:    ./ex4a <file_name>
+
+Input: No Input
+
+Output: no output
+*/
+
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>
@@ -6,7 +30,6 @@
 #include <sys/mman.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include <stdbool.h>
 
 #define SIZE 2
 
@@ -18,9 +41,9 @@ int main(int argc, char **argv)
     off_t file_size, i;
     char *data;
     int sum = 0, counter = 0, curr_num = 0;
-    char avg[2];
+    char avg[SIZE];
 
-    if(argc != 2){
+    if(argc != SIZE){
         fprintf(stderr, "Incorrect number of arguments\n");
         exit(EXIT_FAILURE);
     }
@@ -62,7 +85,7 @@ int main(int argc, char **argv)
 		}
     }
 
-    exit(EXIT_SUCCESS);
+    return EXIT_SUCCESS;
 }
 
 void convertToChar(int avg, char new_avg[])

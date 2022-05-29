@@ -1,0 +1,45 @@
+
+File: ex4a.c
+Map File to Memory and Adjust Data
+=====================================================================
+Written by: Tali Kalev, ID:208629691, Login: talikal
+		and	Noga Levy, ID:315260927, Login: levyno
+
+This program maps a file given in the argument vector to the memory.
+The program then goes through the file, finds the average of each
+row of numbers in file and replaces the last digits 00 of the line
+with the average calculated.
+Format of file: list of 2 - digit integers separated by new line.
+At the end of each line there is: 00.
+
+Compile: gcc -Wall ex4a.c -o ex4a
+
+Run:    ./ex4a <file_name>
+
+Input: No Input
+
+Output: no output
+
+File: ex4b.c
+Going Over Directory and Deleting Files
+=====================================================================
+Written by: Tali Kalev, ID:208629691, Login: talikal
+		and	Noga Levy, ID:315260927, Login: levyno
+
+This program receives a directory in the argument vector. The program
+then proceeds to scan the contents of the directory. If it encounters
+an executable file, it will as the user if they would like to delete the file.
+If so the program deletes the file from the current directory. If the
+program encounters a subdirectory, it will then recursively scan the contents
+of the subdirectory until it reaches the end of the tree.
+
+Compile: gcc -Wall ex4b.c -o ex4b
+
+Run:    ./ex4b <directory_name>
+
+Input: yes or no to whether the user would like to delete the file
+    ex: "Would you like to delete file: <file_name> Y/N?" y
+        (following inputs are allowed : Y/y/N/n)
+
+Output: number of bytes deleted from disk
+    ex: Number of bytes deleted from disk: 56666
